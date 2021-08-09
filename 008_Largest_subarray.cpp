@@ -11,12 +11,9 @@ int main(){
     int start=0,curr_max=INT_MIN;
     for (int i=0; i<n; i++){
         start += arr[i];
-        if (curr_max < start){
-            curr_max = start;
-        }
+        curr_max = max(curr_max,start);
         if (start<0)
             start=0;
     }
     cout << curr_max;
     return 0;
-}

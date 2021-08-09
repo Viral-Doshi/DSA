@@ -20,16 +20,8 @@ tuple<int,int> MinMax(vector<int> arr, int low, int high){
         mml = MinMax(arr, low, mid);
         mmr = MinMax(arr, mid+1, high);
 
-        if (get<0>(mml) < get<0>(mmr))
-            tempmin = get<0>(mml);
-        else
-            tempmin = get<0>(mmr);
-
-        if (get<1>(mml) > get<1>(mmr))
-            tempmax = get<1>(mml);
-        else
-            tempmax = get<1>(mmr); 
-
+        tempmin = (get<0>(mml) < get<0>(mmr)) ? get<0>(mml) : get<0>(mmr);
+        tempmax = (get<1>(mml) > get<1>(mmr)) ? get<1>(mml) : get<1>(mmr);
         minmax = make_tuple(tempmin,tempmax);
         return minmax;  
     }
